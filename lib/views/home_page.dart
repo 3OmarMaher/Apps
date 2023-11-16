@@ -63,58 +63,57 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        
         body: Container(
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-                colors: [
-                  Color(0xff3260C5),
-                  Color.fromARGB(255, 27, 69, 154),
-                  Colors.blue,
-                ]),
+      decoration: const BoxDecoration(
+        gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [
+              Colors.white,
+              Color.fromARGB(255, 211, 245, 225),
+              Color.fromARGB(255, 132, 255, 226),
+            ]),
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Center(
+            child: Text(
+              "Current State is : $state",
+              style: const TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black),
+            ),
           ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Center(
-                child: Text(
-                  "Current State is : $state",
-                  style: const TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white),
-                ),
-              ),
-              const SizedBox(
-                height: 60,
-              ),
-              const Text(
-                'Do you want to change your activity ?',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontFamily:'pacifico',
-                ),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              TextButton(
-                onPressed: () {
-                  Navigator.pushReplacement(context, MaterialPageRoute(
-                    builder: (context) {
-                      return ActivityPage();
-                    },
-                  ));
+          const SizedBox(
+            height: 60,
+          ),
+          const Text(
+            'Do you want to change your activity ?',
+            style: TextStyle(
+              color: Colors.black,
+              fontFamily: 'pacifico',
+            ),
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          TextButton(
+            onPressed: () {
+              Navigator.pushReplacement(context, MaterialPageRoute(
+                builder: (context) {
+                  return ActivityPage();
                 },
-                style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(Colors.black),
-                    foregroundColor: MaterialStateProperty.all(Colors.white)),
-                child: const Text('Change'),
-              )
-            ],
-          ),
-        ));
+              ));
+            },
+            style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(Colors.black),
+                foregroundColor: MaterialStateProperty.all(Colors.white)),
+            child: const Text('Change'),
+          )
+        ],
+      ),
+    ));
   }
 }

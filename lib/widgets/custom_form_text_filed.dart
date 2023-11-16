@@ -15,10 +15,10 @@ class CustomFormTextFiled extends StatelessWidget {
       onChanged: onchange,
       decoration: InputDecoration(
         hintText: label,
-        hintStyle: const TextStyle(color: Colors.white),
+        hintStyle: const TextStyle(color: Colors.black),
         enabledBorder: const OutlineInputBorder(
           borderSide: BorderSide(
-            color: Colors.white,
+            color: Colors.black,
           ),
         ),
         border: const OutlineInputBorder(

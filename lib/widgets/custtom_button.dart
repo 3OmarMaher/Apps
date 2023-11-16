@@ -13,13 +13,13 @@ class CustomButton extends StatelessWidget {
       onTap: ontap,
       child: Container(
         decoration: BoxDecoration(
-            color: Colors.white, borderRadius: BorderRadius.circular(8)),
+            color: Colors.blue, borderRadius: BorderRadius.circular(8)),
         width: double.infinity,
         height: 50,
         child:  Center(
           child: Text(
             text,
-            style: const TextStyle(fontSize: 24),
+            style: const TextStyle(fontSize: 24,color: Colors.black),
           ),
         ),
       ),
