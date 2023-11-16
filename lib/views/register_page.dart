@@ -1,19 +1,18 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:graduationproject/activity/helper/show_snack_bar.dart';
-import 'package:graduationproject/views/home_page.dart';
 import 'package:graduationproject/widgets/custom_form_text_filed.dart';
 import 'package:graduationproject/widgets/custtom_button.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class RegisterPage extends StatefulWidget {
+  const RegisterPage({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<RegisterPage> createState() => _RegisterPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _RegisterPageState extends State<RegisterPage> {
   bool isLoading = false;
   GlobalKey<FormState> formKey = GlobalKey();
   String? email, password;
@@ -24,7 +23,7 @@ class _LoginPageState extends State<LoginPage> {
       child: Scaffold(
         appBar: AppBar(
           title: const Text(
-            'Login',
+            'Sign Up',
             style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
           ),
           centerTitle: true,
@@ -56,13 +55,15 @@ class _LoginPageState extends State<LoginPage> {
                   style: TextStyle(
                       fontSize: 32,
                       fontFamily: 'pacifico',
-                      color: Colors.white),
+                      color: Colors.white,
+                      ),
+                      
                 ),
                 const SizedBox(
                   height: 50,
                 ),
                 const Text(
-                  'Sign In',
+                  'Sign Up',
                   style: TextStyle(fontSize: 27, color: Colors.white),
                 ),
                 const SizedBox(
@@ -85,32 +86,28 @@ class _LoginPageState extends State<LoginPage> {
                   height: 20,
                 ),
                 CustomButton(
-                  ontap: () async {
-                    if (formKey.currentState!.validate()) {
-                      isLoading = true;
-                      setState(() {});
-                      try {
-                        await LoginUser(context);
-                      } on FirebaseAuthException catch (ex) {
-                        if (ex.code == 'user-not-found') {
-                          showSnackBar(
-                              context, 'User Not Found , Sign Up First');
-                        } else if (ex.code == 'wrong-password') {
-                          showSnackBar(context,
-                              'Wrong password provided for that user.');
+                    ontap: () async {
+                      if (formKey.currentState!.validate()) {
+                        isLoading = true;
+                        setState(() {});
+                        try {
+                          await registerUser(context);
+                        } on FirebaseAuthException catch (ex) {
+                          if (ex.code == 'weak-password') {
+                            showSnackBar(context, 'Password Is Weak');
+                          } else if (ex.code == 'email-already-in-use') {
+                            showSnackBar(context, 'Email is Already Exists');
+                          }
+                        } catch (ex) {
+                          showSnackBar(context, ex.toString());
                         }
-                      } catch (ex) {
-                        showSnackBar(context, ex.toString());
+                        isLoading = false;
+                        setState(() {});
+                      } else {
+                        return showSnackBar(context, 'Validation Is Not True');
                       }
-                      isLoading = false;
-                      setState(() {});
-                    } else {
-                      return showSnackBar(context, 'Validation Is Not True');
-                    }
-                    Navigator.of(context).pushNamed('home');
-                  },
-                  text: 'Log In',
-                ),
+                    },
+                    text: 'Register'),
                 const SizedBox(
                   height: 8,
                 ),
@@ -118,15 +115,15 @@ class _LoginPageState extends State<LoginPage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     const Text(
-                      "don't have an account ? ",
+                      "already have an account ? ",
                       style: TextStyle(color: Colors.grey, fontSize: 18),
                     ),
                     InkWell(
                       onTap: () {
-                        Navigator.pushNamed(context, 'register');
+                        Navigator.pop(context);
                       },
                       child: const Text(
-                        "SignUp",
+                        "Log In",
                         style: TextStyle(color: Colors.white, fontSize: 20),
                       ),
                     ),
@@ -140,9 +137,9 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  Future<void> LoginUser(BuildContext context) async {
+  Future<void> registerUser(BuildContext context) async {
     UserCredential user = await FirebaseAuth.instance
-        .signInWithEmailAndPassword(email: email!, password: password!);
-    showSnackBar(context, 'Succesed Log In ');
+        .createUserWithEmailAndPassword(email: email!, password: password!);
+    showSnackBar(context, 'Succesed Sign Up');
   }
 }

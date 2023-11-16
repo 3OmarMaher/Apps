@@ -4,8 +4,11 @@
 
 list(APPEND FLUTTER_PLUGIN_LIST
   awesome_notifications
+  cloud_firestore
   firebase_auth
   firebase_core
+  firebase_storage
+  modal_progress_hud_nsn
 )
 
 list(APPEND FLUTTER_FFI_PLUGIN_LIST

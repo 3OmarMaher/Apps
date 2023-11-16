@@ -25,14 +25,21 @@ class ActivityPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.black,
-      ),
+        appBar: AppBar(
+          title: const Text(
+            'Sign Up',
+            style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
+          ),
+          centerTitle: true,
+          elevation: 0,
+          backgroundColor: const Color(0xff3260C5),
+        ),
+        backgroundColor: const Color(0xff3260C5),
       body: Center(
         child: Column(mainAxisSize: MainAxisSize.min, children: [
           MaterialButton(
             onPressed: () {
-              Navigator.push(context, MaterialPageRoute(
+              Navigator.pushReplacement(context, MaterialPageRoute(
                 builder: (context) {
                   return MyHomePage(state:activites[0] );
                 },
@@ -41,12 +48,12 @@ class ActivityPage extends StatelessWidget {
             color: Colors.black,
             child: Text(
               activites[0],
-              style: const TextStyle(color: Colors.blueAccent),
+              style: const TextStyle(color: Colors.white),
             ),
           ),
           MaterialButton(
             onPressed: () {
-              Navigator.push(context, MaterialPageRoute(
+              Navigator.pushReplacement(context, MaterialPageRoute(
                 builder: (context) {
                   return MyHomePage(state:activites[1] );
                 },
@@ -55,12 +62,12 @@ class ActivityPage extends StatelessWidget {
             color: Colors.black,
             child: Text(
               activites[1],
-              style: const TextStyle(color: Colors.blueAccent),
+              style: const TextStyle(color: Colors.white),
             ),
           ),
           MaterialButton(
             onPressed: () {
-              Navigator.push(context, MaterialPageRoute(
+              Navigator.pushReplacement(context, MaterialPageRoute(
                 builder: (context) {
                   return MyHomePage(state:activites[2] );
                 },
@@ -69,12 +76,12 @@ class ActivityPage extends StatelessWidget {
             color: Colors.black,
             child: Text(
               activites[2],
-              style: const TextStyle(color: Colors.blueAccent),
+              style: const TextStyle(color: Colors.white),
             ),
           ),
           MaterialButton(
             onPressed: () {
-              Navigator.push(context, MaterialPageRoute(
+              Navigator.pushReplacement(context, MaterialPageRoute(
                 builder: (context) {
                   return MyHomePage(state:activites[3] );
                 },
@@ -83,12 +90,12 @@ class ActivityPage extends StatelessWidget {
             color: Colors.black,
             child: Text(
               activites[3],
-              style: const TextStyle(color: Colors.blueAccent),
+              style: const TextStyle(color: Colors.white),
             ),
           ),
           MaterialButton(
             onPressed: () {
-              Navigator.push(context, MaterialPageRoute(
+              Navigator.pushReplacement(context, MaterialPageRoute(
                 builder: (context) {
                   return MyHomePage(state:activites[4] );
                 },
@@ -97,12 +104,12 @@ class ActivityPage extends StatelessWidget {
             color: Colors.black,
             child: Text(
               activites[4],
-              style: const TextStyle(color: Colors.blueAccent),
+              style: const TextStyle(color: Colors.white),
             ),
           ),
           MaterialButton(
             onPressed: () {
-              Navigator.push(context, MaterialPageRoute(
+              Navigator.pushReplacement(context, MaterialPageRoute(
                 builder: (context) {
                   return MyHomePage(state:activites[5] );
                 },
@@ -111,12 +118,12 @@ class ActivityPage extends StatelessWidget {
             color: Colors.black,
             child: Text(
               activites[5],
-              style: const TextStyle(color: Colors.blueAccent),
+              style: const TextStyle(color: Colors.white),
             ),
           ),
           MaterialButton(
             onPressed: () {
-              Navigator.push(context, MaterialPageRoute(
+              Navigator.pushReplacement(context, MaterialPageRoute(
                 builder: (context) {
                   return MyHomePage(state:activites[6] );
                 },
@@ -125,7 +132,7 @@ class ActivityPage extends StatelessWidget {
             color: Colors.black,
             child: Text(
               activites[6],
-              style: const TextStyle(color: Colors.blueAccent),
+              style: const TextStyle(color: Colors.white),
             ),
           ),
         ]

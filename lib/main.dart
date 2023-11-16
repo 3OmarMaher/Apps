@@ -1,14 +1,17 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-//import 'package:get/get_instance/src/bindings_interface.dart';
-//import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:graduationproject/firebase_options.dart';
 import 'package:graduationproject/services/notification.dart';
-//import 'package:graduationproject/views/home_page.dart';
-//import 'views/home_page.dart';
+import 'package:graduationproject/views/home_page.dart';
+import 'package:graduationproject/views/register_page.dart';
 import 'views/login_screen.dart';
 
 void main() async {
-  
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
 
   WidgetsFlutterBinding.ensureInitialized();
   await NotificationService.initializeNotification();
@@ -30,15 +33,16 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   @override
-  
-
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+        routes: {
+          'login': (context) => const LoginPage(),
+          'register': (context) => const RegisterPage(),
+          'home': (context) => MyHomePage(state: 'null'),
+        },
         initialBinding: BindingsBuilder(() {}),
         debugShowCheckedModeBanner: false,
-        home: const LoginScreen()
-       
-        );
+        home: const LoginPage());
   }
 }

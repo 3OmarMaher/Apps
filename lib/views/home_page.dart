@@ -26,7 +26,8 @@ DateTime lastMovementTime = DateTime.now();
 class MyHomePage extends StatelessWidget {
   final String state;
   MyHomePage({
-    super.key, required this.state,
+    super.key,
+    required this.state,
   }) {
     void initState() {
       AwesomeNotifications().cancelAllSchedules();
@@ -62,40 +63,58 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.black,
-        ),
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Center(
-              child: Text(
-                "Current State is : $state",
-                style:
-                    const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+        
+        body: Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: [
+                  Color(0xff3260C5),
+                  Color.fromARGB(255, 27, 69, 154),
+                  Colors.blue,
+                ]),
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Center(
+                child: Text(
+                  "Current State is : $state",
+                  style: const TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white),
+                ),
               ),
-            ),
-            const SizedBox(
-              height: 60,
-            ),
-            const Text('Do you want to change your activity ?'),
-            const SizedBox(
-              height: 20,
-            ),
-            TextButton(
-              onPressed: () {
-                Navigator.push(context, MaterialPageRoute(
-                  builder: (context) {
-                    return ActivityPage();
-                  },
-                ));
-              },
-              style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(Colors.black),
-                  foregroundColor: MaterialStateProperty.all(Colors.white)),
-              child: const Text('Change'),
-            )
-          ],
+              const SizedBox(
+                height: 60,
+              ),
+              const Text(
+                'Do you want to change your activity ?',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontFamily:'pacifico',
+                ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.pushReplacement(context, MaterialPageRoute(
+                    builder: (context) {
+                      return ActivityPage();
+                    },
+                  ));
+                },
+                style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(Colors.black),
+                    foregroundColor: MaterialStateProperty.all(Colors.white)),
+                child: const Text('Change'),
+              )
+            ],
+          ),
         ));
   }
 }
