@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 
 class CustomFormTextFiled extends StatelessWidget {
-  CustomFormTextFiled({super.key, this.onchange, required this.label});
-  final String label;
+  CustomFormTextFiled({super.key, this.onchange, required this.hint,  this.obscure= false, required this.myController,});
+  final String hint;
   Function(String)? onchange;
+  final bool obscure;
+  final TextEditingController myController; 
+
   @override
   Widget build(BuildContext context) {
     return TextFormField(
@@ -12,18 +15,16 @@ class CustomFormTextFiled extends StatelessWidget {
           return 'Invalid Value ';
         }
       },
+      controller: myController,
+      obscureText: obscure,
       onChanged: onchange,
       decoration: InputDecoration(
-        hintText: label,
-        hintStyle: const TextStyle(color: Colors.black),
-        enabledBorder: const OutlineInputBorder(
-          borderSide: BorderSide(
+        hintText: hint,
+        hintStyle: TextStyle(color: Colors.grey[600]),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(50),
+          borderSide: const BorderSide(
             color: Colors.black,
-          ),
-        ),
-        border: const OutlineInputBorder(
-          borderSide: BorderSide(
-            color: Colors.white,
           ),
         ),
       ),

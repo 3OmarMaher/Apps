@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -36,13 +37,16 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-        routes: {
-          'login': (context) => const LoginPage(),
-          'register': (context) => const RegisterPage(),
-          'home': (context) => MyHomePage(state: 'null'),
-        },
-        initialBinding: BindingsBuilder(() {}),
-        debugShowCheckedModeBanner: false,
-        home: const LoginPage());
+      home: FirebaseAuth.instance.currentUser == null
+          ? const LoginPage()
+          : MyHomePage(state: 'null'),
+      routes: {
+        'login': (context) => const LoginPage(),
+        'register': (context) => const RegisterPage(),
+        'home': (context) => MyHomePage(state: 'null'),
+      },
+      initialBinding: BindingsBuilder(() {}),
+      debugShowCheckedModeBanner: false,
+    );
   }
 }
