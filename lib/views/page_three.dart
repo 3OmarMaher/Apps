@@ -2,9 +2,8 @@
 
 //import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:graduationproject/services/widgets.dart';
+import 'package:graduationproject/views/current_state_page.dart';
 
-import 'home_page.dart';
 //import 'package:flutter/services.dart';
 //import 'package:pedometer/pedometer.dart';
 
@@ -44,7 +43,7 @@ class ActivityPage extends StatelessWidget {
               onPressed: () {
                 Navigator.pushReplacement(context, MaterialPageRoute(
                   builder: (context) {
-                    return MyHomePage(state: activites[0]);
+                    return CurrentStatePage(state: activites[0]);
                   },
                 ));
               },
@@ -58,7 +57,7 @@ class ActivityPage extends StatelessWidget {
               onPressed: () {
                 Navigator.pushReplacement(context, MaterialPageRoute(
                   builder: (context) {
-                    return MyHomePage(state: activites[1]);
+                    return CurrentStatePage(state: activites[1]);
                   },
                 ));
               },
@@ -72,7 +71,7 @@ class ActivityPage extends StatelessWidget {
               onPressed: () {
                 Navigator.pushReplacement(context, MaterialPageRoute(
                   builder: (context) {
-                    return MyHomePage(state: activites[2]);
+                    return CurrentStatePage(state: activites[2]);
                   },
                 ));
               },
@@ -86,7 +85,7 @@ class ActivityPage extends StatelessWidget {
               onPressed: () {
                 Navigator.pushReplacement(context, MaterialPageRoute(
                   builder: (context) {
-                    return MyHomePage(state: activites[3]);
+                    return CurrentStatePage(state: activites[3]);
                   },
                 ));
               },
@@ -100,7 +99,7 @@ class ActivityPage extends StatelessWidget {
               onPressed: () {
                 Navigator.pushReplacement(context, MaterialPageRoute(
                   builder: (context) {
-                    return MyHomePage(state: activites[4]);
+                    return CurrentStatePage(state: activites[4]);
                   },
                 ));
               },
@@ -114,7 +113,7 @@ class ActivityPage extends StatelessWidget {
               onPressed: () {
                 Navigator.pushReplacement(context, MaterialPageRoute(
                   builder: (context) {
-                    return MyHomePage(state: activites[5]);
+                    return CurrentStatePage(state: activites[5]);
                   },
                 ));
               },
@@ -128,7 +127,7 @@ class ActivityPage extends StatelessWidget {
               onPressed: () {
                 Navigator.pushReplacement(context, MaterialPageRoute(
                   builder: (context) {
-                    return MyHomePage(state: activites[6]);
+                    return CurrentStatePage(state: activites[6]);
                   },
                 ));
               },

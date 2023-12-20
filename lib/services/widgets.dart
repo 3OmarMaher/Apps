@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:graduationproject/views/current_state_page.dart';
 
-import '../views/home_page.dart';
+
+
 
 class Buttons extends StatefulWidget {
  const Buttons({
@@ -34,7 +36,7 @@ class _ButtonsState extends State<Buttons> {
        
         Navigator.push(context, MaterialPageRoute(
           builder: (context) {
-            return MyHomePage(state:activites[activites.length] ,);
+            return CurrentStatePage(state:activites[activites.length] ,);
           },
         ));
       },

@@ -12,7 +12,28 @@
           "package_name": "com.example.graduationproject"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "678600886500-b1r63a01b5i2mas3r61qp9em4t1crr97.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.graduationproject",
+            "certificate_hash": "b251e95341e88851f48761273411365b205a76df"
+          }
+        },
+        {
+          "client_id": "678600886500-u996vhhuhg59sn01glj6373fk36jhhf6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.graduationproject",
+            "certificate_hash": "886cb83abec03b449f4171b72615ebecc10df3ad"
+          }
+        },
+        {
+          "client_id": "678600886500-q87ev2k516irvrasu55vjq332iovm077.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyDoBWQc2k5rcGdFXFGrbSClWruy7tgshVw"
@@ -20,7 +41,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "678600886500-q87ev2k516irvrasu55vjq332iovm077.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "678600886500-ibbriutasuivojaq3qhon9l8dj3859dv.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.graduationproject"
+              }
+            }
+          ]
         }
       }
     }

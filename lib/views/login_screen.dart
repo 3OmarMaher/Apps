@@ -1,5 +1,5 @@
 import 'package:awesome_dialog/awesome_dialog.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+
 import 'package:flutter/material.dart';
 
 import 'package:google_sign_in/google_sign_in.dart';
@@ -143,22 +143,21 @@ class _LoginPageState extends State<LoginPage> {
                         }
 
                         try {
-                          await FirebaseAuth.instance
-                              .sendPasswordResetEmail(email: email.text);
+                          
                           AwesomeDialog(
                             context: context,
                             dialogType: DialogType.success,
                             animType: AnimType.rightSlide,
-                            title: 'Right',
+                          title: 'done',
                             desc:
                                 'A message has been sent to change your account password',
                           ).show();
                         } catch (e) {
                           AwesomeDialog(
                             context: context,
-                            dialogType: DialogType.success,
+                            dialogType: DialogType.error,
                             animType: AnimType.rightSlide,
-                            title: 'Right',
+                            title: 'Error',
                             desc: 'Wrong Email',
                           ).show();
                         }
@@ -181,9 +180,9 @@ class _LoginPageState extends State<LoginPage> {
                         isLoading = true;
                         setState(() {});
                         try {
-                          await loginUser(context);
-                        } on FirebaseAuthException catch (e) {
-                          if (e.code == 'INVALID_LOGIN_CREDENTIALS') {
+                        
+                        }  catch (e) {
+                            {
                             showSnackBar(context,
                                 ' Maybe User Not Found, or Password incorrect , Validate');
                           }
@@ -257,37 +256,35 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  Future<void> loginUser(BuildContext context) async {
-    final credential = await FirebaseAuth.instance
-        .signInWithEmailAndPassword(email: email.text, password: password.text);
-    if (credential.user!.emailVerified) {
-      showSnackBar(context, 'Succesed Log In ');
-      Navigator.of(context).pushNamed('home');
-    } else {
-      showSnackBar(context, 'Check Your Email To Verified');
-    }
-  }
+  // Future<void> loginUser(BuildContext context) async {
+  //   final credential = await FirebaseAuth.instance
+  //       .signInWithEmailAndPassword(email: email.text, password: password.text);
+  //   if (credential.user!.emailVerified) {
+  //     showSnackBar(context, 'Succesed Log In ');
+  //     Navigator.of(context).pushNamed('home');
+  //   } else {
+  //     showSnackBar(context, 'Check Your Email To Verified');
+  //   }
+  // }
 
   Future signInWithGoogle() async {
     // Trigger the authentication flow
-
     final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
-
     if (googleUser == null) {
       return;
     }
     // Obtain the auth details from the request
-    final GoogleSignInAuthentication? googleAuth =
-        await googleUser?.authentication;
-
+   
     // Create a new credential
-    final credential = GoogleAuthProvider.credential(
-      accessToken: googleAuth?.accessToken,
-      idToken: googleAuth?.idToken,
-    );
+    // final credential = GoogleAuthProvider.credential(
+    //   accessToken: googleAuth?.accessToken,
+    //   idToken: googleAuth?.idToken,
+    // // );
 
     // Once signed in, return the UserCredential
-    await FirebaseAuth.instance.signInWithCredential(credential);
+    
     Navigator.of(context).pushNamedAndRemoveUntil('home', (route) => false);
   }
+
+
 }

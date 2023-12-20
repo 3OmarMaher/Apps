@@ -1,8 +1,9 @@
 import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:graduationproject/views/home_page.dart';
+import 'package:graduationproject/views/current_state_page.dart';
+
+
 
 import '../views/page_three.dart';
 
@@ -73,7 +74,7 @@ class NotificationService {
   static Future<void> onActionReceivedMethod(
       ReceivedAction receivedAction) async {
     debugPrint('onActionReceivedMethod');
-    debugPrint("${receivedAction.buttonKeyPressed}");
+    debugPrint(receivedAction.buttonKeyPressed);
     selectedId = int.parse(receivedAction.buttonKeyPressed);
     currentState = "${personPossibleStatuses[selectedId]}";
 

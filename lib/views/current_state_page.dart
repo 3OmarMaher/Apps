@@ -1,10 +1,6 @@
 import 'package:awesome_notifications/awesome_notifications.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:google_sign_in/google_sign_in.dart';
-import 'package:graduationproject/activity/helper/show_snack_bar.dart';
-
 import 'package:graduationproject/services/notification.dart';
 import 'package:sensors_plus/sensors_plus.dart';
 
@@ -26,9 +22,9 @@ double acceleration = 0;
 bool isMoving = false;
 DateTime lastMovementTime = DateTime.now();
 
-class MyHomePage extends StatelessWidget {
+class CurrentStatePage extends StatelessWidget {
   final String state;
-  MyHomePage({
+  CurrentStatePage({
     super.key,
     required this.state,
   }) {
@@ -77,20 +73,21 @@ class MyHomePage extends StatelessWidget {
           centerTitle: true,
           elevation: 0,
           backgroundColor: Colors.white,
-          leading: IconButton(
-              color: Colors.black,
-              onPressed: () async {
-               GoogleSignIn googleSignIn = GoogleSignIn();
+        //   leading: IconButton(
+        //       color: Colors.black,
+        //       onPressed: () async {
+        //        GoogleSignIn googleSignIn = GoogleSignIn();
 
-              await googleSignIn.signOut();
+        //       await googleSignIn.signOut();
 
-                await FirebaseAuth.instance.signOut();
-                Navigator.of(context)
-                    .pushNamedAndRemoveUntil('login', (route) => false);
-                showSnackBar(context, 'SignOut Successfully');
-              },
-              icon: const Icon(Icons.exit_to_app_rounded)),
-        ),
+        //         await FirebaseAuth.instance.signOut();
+        //         Navigator.of(context)
+        //             .pushNamedAndRemoveUntil('login', (route) => false);
+        //         showSnackBar(context, 'SignOut Successfully');
+        //       },
+        //       icon: const Icon(Icons.exit_to_app_rounded)),
+        // )
+         ) ,
         body: Container(
           decoration: const BoxDecoration(
             gradient: LinearGradient(

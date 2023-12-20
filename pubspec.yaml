@@ -39,15 +39,21 @@ dependencies:
   get: ^4.6.6
   sensors_plus: ^3.0.3
   pedometer: ^4.0.1
-  
-  firebase_core: ^2.22.0
-  cloud_firestore: ^4.9.3
-  firebase_storage: ^11.2.8
-  firebase_messaging: ^14.6.9
-  firebase_auth: ^4.7.1
   google_sign_in: ^6.1.5
   modal_progress_hud_nsn: ^0.4.0
   awesome_dialog: ^3.1.0
+  health: ^8.1.0
+  google_nav_bar: ^5.0.6
+  activity_recognition_flutter: ^5.0.0
+  permission_handler: ^11.0.1
+  http: ^1.1.0
+  fluttertoast: ^8.2.4
+
+  
+  
+ 
+  
+  
 
 dev_dependencies:
   flutter_test:

@@ -14,6 +14,7 @@ class CustomFormTextFiled extends StatelessWidget {
         if (data!.isEmpty) {
           return 'Invalid Value ';
         }
+        return null;
       },
       controller: myController,
       obscureText: obscure,
